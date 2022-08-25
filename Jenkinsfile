@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('clone') {
             steps {
-                git url: 'https://github.com/Raghusadhu/Employe.git'
+                git branch: 'main'  , url: 'https://github.com/Raghusadhu/Employe.git'
                 sh 'echo hello1'
             }
         }
