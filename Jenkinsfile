@@ -4,10 +4,14 @@ pipeline {
     tools {
         maven 'maven' 
     }  
+    parameters {
+    gitParameter branchFilter: 'origin/(.*)', defaultValue: 'main', name: 'BRANCH', type: 'main'
+  }
+    
     stages {
         stage('clone') {
             steps {
-                git  url: 'https://github.com/Raghusadhu/Employe.git'
+                git  "${params.BRANCH}", url: 'https://github.com/Raghusadhu/Employe.git'
                 sh 'echo hello1'
             }
         }
